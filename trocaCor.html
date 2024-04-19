@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100%;
+            height: 500px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .bg-blue {
+            background-color: blue;
+        }
+
+        .bg-yellow {
+            background-color: yellow;
+        }
+
+        .bg-red {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1.	Desenvolva um script que mude a cor de fundo de uma div ao selecionar uma option em um elemento select. Exemplo: Selecionou a cor azul no select a div deverá ficar com o fundo azul. -->
+    <div id="divDocumento">
+        <form action="">
+            <select name="options" onchange="mudarCor()" id="options">
+                <option value="">Selecionar cor</option>
+                <option value="vermelho">Vermelho</option>
+                <option value="azul">Azul</option>
+                <option value="amarelo">Amarelo</option>
+            </select>
+        </form>
+    </div>
+    <script>
+        var cor_fundo = document.getElementById('options');
+        var divDocumento = document.getElementById('divDocumento');
+        function mudarCor() {
+            if (cor_fundo.value == "vermelho") {
+                divDocumento.className = 'bg-red';
+            }
+            else if (cor_fundo.value == "amarelo") {
+                divDocumento.className = 'bg-yellow';
+            }
+            else if (cor_fundo.value == "azul") {
+                divDocumento.className = 'bg-blue';
+            }
+            else {
+                divDocumento.className = '';
+            }
+        }
+
+        function ativarMudanca() {
+            mudarCor();
+        }
+    </script>
+</body>
+
+</html>

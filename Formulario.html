@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container1{
+            display: flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content: center;
+        }
+        .container2{
+            display: flex;
+            flex-direction: column;
+            align-items:flex-start;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+    
+<body>
+    <!-- 4.	Monte uma página HTML com quatro campos de texto:  Nome completo, Email, CPF e Celular, e também um botão “Validar”. Ao clicar no botão uma função javascript deverá ser chamada que irá capturar os valores dos campos (getElementById ou querySelector) e irá aplicar as seguintes regras de validação:
+        ●	Nome completo -> No mínimo 2 nomes;
+        ●	Email -> Deverá conter “@”;
+        ●	CPF -> 11 caracteres;
+        ●	Celular -> No mínimo 8 caracteres, no máximo 9;
+
+	Se alguma regra não for atendida, uma mensagem de erro deverá ser exibida-->
+    <div class="container1">
+        <form action="">
+            <div class="container2">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" placeholder="ex: João Vitor">
+            </div>
+            <div class="container2">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="ex: joao@provedor.com.br">
+            </div>
+            <div class="container2">
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" name="cpf" placeholder="ex: 12345678901">
+            </div>
+            <div class="container2">
+                <label for="tel">Celular</label>
+                <input type="text" id="tel" name="tel" placeholder="ex: 999999999">
+            </div>
+            <div class="container2">
+                <input type="button" onclick="validar ()" value="Validar dados">
+            </div>
+        </form>
+        <script>
+            let temDoisNomes = false;
+            let temArroba = false;
+            let temOnzeCaracteres = false;
+            let temOitoOuNoveCaracter = false;
+            let nome = document.getElementById ('nome')
+            let email = document.getElementById ('email')
+            let cpf = document.getElementById ('cpf')
+            let tel = document.getElementById ('tel')
+            function verificar (){
+                if (nome.value.split(' ').length>=1){
+                    temDoisNomes = true
+                }
+                if (email.value.indexOf('@')!=-1){
+                    temArroba = true
+                }
+                if (cpf.value.replaceAll('.','').replaceAll('-','').length == 11){
+                    temOnzeCaracteres = true
+                }
+                if (tel.value.replaceAll('-','').length == 8 || tel.value.replaceAll('-','').length == 9){
+                    temOitoOuNoveCaracter = true
+                }
+                if (temDoisNomes && temArroba && temOnzeCaracteres && temOitoOuNoveCaracter){
+                    return true
+                }
+                return false
+            }
+            function validar (){
+                if (verificar ()){
+                    alert('T')
+                }
+                else {
+                    alert('F')
+                }
+                temDoisNomes = false;
+                temArroba = false;
+                temOnzeCaracteres = false;
+                temOitoOuNoveCaracter = false;
+            }
+
+        </script>
+    </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- 3.	Utilize a função setInterval para criar um cronômetro. A página HTML, além de exibir o tempo no formato minutos:segundos (00:00), ela deverá ter dois botões, um para iniciar e outro para zerar o cronômetro -->
+    <div class = "box">
+        <div>
+            <p>Cronômetro:</p>
+        </div>
+        <div>
+            <p id="cronometro">0 minutos : 0 segundos</p>
+        </div>
+        <div>
+            <button onclick="iniciar ()">Iniciar Contagem</button>
+            <button onclick="zerar ()">Zerar Contagem</button>
+        </div>
+    </div>
+    <script>
+        var cronometro = document.getElementById('cronometro')
+        var vetRelogio = [0,0]
+        var intervalo=null;
+
+        function contar(){
+            vetRelogio[1]++;
+            if (parseInt(vetRelogio[1])==60){
+                vetRelogio [0]++
+                vetRelogio [1]=0
+            }
+            cronometro.innerHTML = vetRelogio[0]+' minutos : '+vetRelogio[1] +' segundos';
+        }
+        function iniciar (){
+            if (intervalo==null){
+                intervalo = setInterval(contar,1000)
+            }
+        }
+        function zerar (){
+            clearInterval (intervalo);
+            vetRelogio = [0,0];
+            cronometro.innerHTML = '0 minutos : 0 segundos'
+            intervalo = null;
+        }
+        
+    </script>
+</body>
+</html>

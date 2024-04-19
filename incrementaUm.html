@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg{
+            background-color: aqua;
+            font-weight: bold;
+            text-align: center;
+        }
+        .em-azul{
+            color: blue;
+        }
+        .em-verde{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- 2.	Crie uma página HTML que exibe um número qualquer (de preferência 0) e dois botões. Um dos botões ao ser clicado deverá incrementar o número e o outro decrementar. Além disso, ao realizar a operação dos botões, os números pares deverão ser exibidos em azul e os ímpares em verde. Exemplo: Se o número inicial for zero, ao incrementar o número a ser exibido será 1 com a cor de fonte verde, se incrementar mais uma vez, será exibido o 2 com a cor de fonte azul. -->
+    <form action="">
+        <input id="numero" class="bg" name="numero" type="number" value="0">
+        <input id="btn-incrementar" type="button" value="Incrementar" onclick="incrementar()">
+        <input id="btn-decrementar" type="button" value="Decrementar" onclick="decrementar()">
+    </form>
+    <script>
+        var numero = document.getElementById ("numero");
+        function incrementar () {
+            numero.value = parseInt(numero.value) + 1;
+            mudaCor ()
+        }
+        function decrementar () {
+            numero.value = parseInt(numero.value) - 1;
+            mudaCor ()
+        }
+        function mudaCor () {
+            if (parseInt (numero.value)%2 == 0){
+                //azul
+                numero.className = 'bg em-azul';
+            }
+            else {
+                //verde
+                numero.className = 'bg em-verde';
+            }
+        }
+
+    </script>
+
+</body>
+</html>
